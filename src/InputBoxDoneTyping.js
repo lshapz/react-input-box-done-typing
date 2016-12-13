@@ -6,6 +6,7 @@ const InputBoxDoneTyping = (props) => {
   const handleOnChange = (e) => {
     if (props.onChange) {
       // const value = e.target.value;
+
       props.onChange(e);
     }
   };
@@ -17,6 +18,7 @@ const InputBoxDoneTyping = (props) => {
   const handleOnKeyUp = (e) => {
     clearTimeout(typingTimer);
     // const value = e.target.value;
+    e.persist()
     typingTimer = setTimeout(() => { doneTyping(e); }, props.doneTypingInterval);
   };
 
@@ -26,7 +28,7 @@ const InputBoxDoneTyping = (props) => {
 
   return (
     <input
-      type="text"
+      type="number"
       id={props.id}
       className={props.className}
       placeholder={props.placeholder}
