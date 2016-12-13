@@ -5,8 +5,8 @@ const InputBoxDoneTyping = (props) => {
 
   const handleOnChange = (e) => {
     if (props.onChange) {
-      const value = e.target.value;
-      props.onChange(value);
+      // const value = e.target.value;
+      props.onChange(e);
     }
   };
 
@@ -16,8 +16,8 @@ const InputBoxDoneTyping = (props) => {
 
   const handleOnKeyUp = (e) => {
     clearTimeout(typingTimer);
-    const value = e.target.value;
-    typingTimer = setTimeout(() => { doneTyping(value); }, props.doneTypingInterval);
+    // const value = e.target.value;
+    typingTimer = setTimeout(() => { doneTyping(e); }, props.doneTypingInterval);
   };
 
   const handleOnKeyDown = () => {
@@ -50,7 +50,7 @@ InputBoxDoneTyping.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.string,
   maxLength: PropTypes.number,
-  defaultValue: PropTypes.string,
+  defaultValue: PropTypes.number,
   autoComplete: PropTypes.oneOf(['on', 'off']),
   onChange: PropTypes.func,
   doneTyping: PropTypes.func.isRequired,
